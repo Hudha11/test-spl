@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Approval Surat Perintah Lembur')
+@section('title', 'Data Karyawan')
+@section('menuManagerUser', 'active')
 
 @section('content')
     @livewire('manager.user.index')

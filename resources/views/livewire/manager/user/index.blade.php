@@ -25,11 +25,11 @@
                 <div class="card-header">
                     <button class="btn btn-sm btn-primary">
                         <i class="fas fa-plus mr-1"></i>
-                        Buat SPL
+                        Tambah Data
                     </button>
                 </div>
                 <div class="card-body">
-                    Konten utama halaman SPL legacy user menu
+                    DATA KARYAWAN
                 </div>
             </div>
             

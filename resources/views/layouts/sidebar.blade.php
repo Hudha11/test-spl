@@ -27,28 +27,70 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
+
+                {{-- MANAGER --}}
+                <li class="nav-header">MANAGER</li>
                 <li class="nav-item">
-                    <a href="../widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a wire:navigate href="{{ route('manager.user.index') }}" class="nav-link @yield('menuManagerUser')">
+                        <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
+                            Data Karyawan
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-item">
+                    <a wire:navigate href="{{ route('manager.spl.index') }}" class="nav-link @yield('menuManagerSpl')">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            SPL Requests
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a wire:navigate href="{{ route('manager.approval.index') }}" class="nav-link @yield('menuManagerApproval')">
+                        <i class="nav-icon far fa-list-alt"></i>
+                        <p>
+                            Approvals
+                        </p>
+                    </a>
+                </li>
+
+                {{-- SUPERVISOR --}}
+                <li class="nav-header">SUPERVISOR</li>
                 <li class="nav-item">
                     <a href="../calendar.html" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Calendar
+                            SPL Requests
+                        </p>
+                    </a>
+                </li>
+
+                {{-- ADMIN SDM --}}
+                <li class="nav-header">ADMIN SDM</li>
+                <li class="nav-item">
+                    <a href="../calendar.html" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Approvals
+                        </p>
+                    </a>
+                </li>
+
+                {{-- KARYAWAN --}}
+                <li class="nav-header">KARYAWAN</li>
+                <li class="nav-item">
+                    <a href="../calendar.html" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Lembur Saya
                         </p>
                     </a>
                 </li>
