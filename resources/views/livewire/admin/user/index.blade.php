@@ -29,7 +29,53 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    DATA KARYAWAN
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Department</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($user as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                    
+                                        @php
+                                            $role = $item->role?->name;
+                                        @endphp
+
+                                        <td>
+                                            <span class="badge 
+                                                {{ $role == 'Manager' ? 'badge-success' : '' }}
+                                                {{ $role == 'Admin' ? 'badge-warning' : '' }}
+                                                {{ $role == 'Supervisor' ? 'badge-primary' : '' }}
+                                                {{ $role == 'Karyawan' ? 'badge-info' : '' }}
+                                            ">
+                                                {{ $role }}
+                                            </span>
+                                        </td>
+                                        <td>{{ $item->department->name?? '-'}}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-warning">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             

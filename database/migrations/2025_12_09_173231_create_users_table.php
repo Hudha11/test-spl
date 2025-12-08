@@ -15,8 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            // Fk for role
+            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('set null');
+            // Fk for department
+            $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('set null');
+            // Fk for section
+            $table->foreignId('section_id')->nullable()->constrained('sections')->onDelete('set null');
+
             $table->rememberToken();
             $table->timestamps();
         });
