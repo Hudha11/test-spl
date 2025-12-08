@@ -29,7 +29,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    DATA APPROVAL
+                    DATA APPROVAL MANAGER
                 </div>
             </div>
             

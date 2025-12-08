@@ -39,9 +39,9 @@
                 <li class="nav-header">MANAGER</li>
                 <li class="nav-item">
                     <a wire:navigate href="{{ route('manager.user.index') }}" class="nav-link @yield('menuManagerUser')">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon far fa-list-alt"></i>
                         <p>
-                            Data Karyawan
+                            Data Department
                         </p>
                     </a>
                 </li>
@@ -55,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                     <a wire:navigate href="{{ route('manager.approval.index') }}" class="nav-link @yield('menuManagerApproval')">
-                        <i class="nav-icon far fa-list-alt"></i>
+                        <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Approvals
                         </p>
@@ -65,8 +65,8 @@
                 {{-- SUPERVISOR --}}
                 <li class="nav-header">SUPERVISOR</li>
                 <li class="nav-item">
-                    <a href="../calendar.html" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a wire:navigate href="{{ route('supervisor.spl.index') }}" class="nav-link @yield('menuSupervisorSpl')">
+                        <i class="nav-icon fas fa-edit"></i>
                         <p>
                             SPL Requests
                         </p>
@@ -76,7 +76,15 @@
                 {{-- ADMIN SDM --}}
                 <li class="nav-header">ADMIN SDM</li>
                 <li class="nav-item">
-                    <a href="../calendar.html" class="nav-link">
+                    <a wire:navigate href="{{ route('admin.user.index') }}" class="nav-link @yield('menuAdminUser')">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Data Karyawan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a wire:navigate href="{{ route('admin.approval.index') }}" class="nav-link @yield('menuAdminApproval')">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Approvals
@@ -87,8 +95,8 @@
                 {{-- KARYAWAN --}}
                 <li class="nav-header">KARYAWAN</li>
                 <li class="nav-item">
-                    <a href="../calendar.html" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a wire:navigate href="{{ route('karyawan.lembur.index') }}" class="nav-link @yield('menuKaryawanLembur')">
+                        <i class="nav-icon far fa-list-alt"></i>
                         <p>
                             Lembur Saya
                         </p>

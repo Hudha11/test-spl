@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'SPL')
+@section('title', 'SPL Manager')
 @section('menuManagerSpl', 'active')
 
 @section('content')

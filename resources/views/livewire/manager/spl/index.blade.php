@@ -29,7 +29,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    DATA SPL
+                    DATA SPL MANAGER
                 </div>
             </div>
             

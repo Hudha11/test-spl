@@ -29,7 +29,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    DATA KARYAWAN
+                    DATA DEPARTMENT
                 </div>
             </div>
             
