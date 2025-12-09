@@ -23,7 +23,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <button class="btn btn-sm btn-primary">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fas fa-plus mr-1"></i>
                         Tambah Data
                     </button>
