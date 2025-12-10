@@ -10,7 +10,6 @@ class Spl extends Model
 
     protected $fillable = [
         'kode_spl',
-        'created_by',
         'department_id',
         'section_id',
         'notes',
@@ -27,8 +26,8 @@ class Spl extends Model
         return $this->belongsTo(Section::class);
     }
 
-    // public function spl_items()
-    // {
-    //     return $this->hasMany(SplItem::class);
-    // }
+    public function splItems()
+    {
+        return $this->hasMany(SplItem::class);
+    }
 }
