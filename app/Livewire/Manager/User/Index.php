@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $title = 'Data Department';
+
     public function render()
     {
         $data = array(

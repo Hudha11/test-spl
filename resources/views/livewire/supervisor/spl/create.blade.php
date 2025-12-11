@@ -79,9 +79,9 @@
                 @forelse($items as $index => $row)
                   <tr wire:key="item-row-{{ $index }}">
                     <td>
-                      <select class="form-control form-control-sm" wire:model.defer="items.{{ $index }}.user_id">
+                      <select class="form-control form-control-sm" wire:model.live="items.{{ $index }}.user_id">
                         <option value="">-- Pilih Karyawan --</option>
-                        @foreach ($users as $emp)
+                        @foreach ($user as $emp)
                           <option value="{{ $emp->id }}">{{ $emp->name }}</option>
                         @endforeach
                       </select>
@@ -139,7 +139,7 @@
   <!-- SCRIPT BOOTSTRAP 4 -->
   <script>
       // Buka Modal
-      window.addEventListener('openCreateModal', () => {
+      window.addEventListener('showCreateModal', () => {
           $('#createModal').modal('show');
       });
 

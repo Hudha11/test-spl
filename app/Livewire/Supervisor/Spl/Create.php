@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Manager\Spl;
+namespace App\Livewire\Supervisor\Spl;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -18,19 +18,16 @@ class Create extends Component
     public $notes;
 
     public $items = [];
-    public $users = [];
+    public $user = [];
     public $sections = [];
 
     protected $listeners = [
         'openCreateModal' => 'openModal',
-        'openSplForm'     => 'loadEdit',
+        'openSplForm'     => 'loadEdit',   // <-- Listener Edit
     ];
 
     public function mount()
     {
-        $this->items = [];
-        $this->users = [];
-        $this->sections = [];
         $this->generateKodeSpl();
     }
 
@@ -42,12 +39,7 @@ class Create extends Component
 
     public function resetForm()
     {
-        $this->reset(['department_id', 'section_id', 'notes']);
-
-        $this->items = [];
-        $this->users = [];
-        $this->sections = [];
-
+        $this->reset(['department_id', 'section_id', 'notes', 'items', 'user', 'sections']);
         $this->generateKodeSpl();
     }
 
@@ -56,13 +48,13 @@ class Create extends Component
         $this->section_id = null;
         $this->sections = Section::where('department_id', $this->department_id)->get();
 
-        $this->users = [];
+        $this->user = [];
         $this->items = [];
     }
 
     public function updatedSectionId()
     {
-        $this->users = User::where('section_id', $this->section_id)->get();
+        $this->user = User::where('section_id', $this->section_id)->get();
     }
 
     public function addItem()
@@ -128,18 +120,9 @@ class Create extends Component
         $this->notes         = $spl->notes;
 
         $this->sections = Section::where('department_id', $this->department_id)->get();
-        $this->users     = User::where('section_id', $this->section_id)->get();
+        $this->user     = User::where('section_id', $this->section_id)->get();
 
-        // FIX: Format ulang agar cocok untuk Livewire
-        $this->items = $spl->splItems->map(function ($item) {
-            return [
-                'user_id' => $item->user_id,
-                'date' => $item->date,
-                'start_time' => $item->start_time,
-                'end_time' => $item->end_time,
-                'duration_hours' => $item->duration_hours,
-            ];
-        })->toArray();
+        $this->items = $spl->splItems->toArray();
 
         $this->dispatch('showCreateModal');
     }
@@ -155,7 +138,7 @@ class Create extends Component
                 'department_id' => $this->department_id,
                 'section_id'    => $this->section_id,
                 'notes'         => $this->notes,
-                'status'        => 'Approved',
+                'status'        => 'Pending',
             ]);
 
             foreach ($this->items as $row) {
@@ -215,7 +198,7 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.manager.spl.create', [
+        return view('livewire.supervisor.spl.create', [
             'departments' => Department::orderBy('name')->get(),
         ]);
     }

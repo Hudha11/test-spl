@@ -10,10 +10,13 @@ class SplItem extends Model
 
     protected $fillable = [
         'spl_id',
+        'user_id',
         'date',
         'start_time',
         'end_time',
         'duration_hours',
+        'status',
+        'notes'
     ];
 
     public function spl()
